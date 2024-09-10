@@ -1,0 +1,120 @@
+﻿@model IEnumerable<RFID_Device_Management.Models.RfidTagRead>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 16px;
+        }
+
+            .table th, .table td {
+                border: 1px solid #ddd;
+                padding: 8px;
+                text-align: left;
+            }
+
+            .table th {
+                background-color: #f2f2f2;
+                color: #333;
+                font-weight: bold;
+            }
+
+            .table tr:nth-child(even) {
+                background-color: #f9f9f9;
+            }
+
+            .table tr:hover {
+                background-color: #f1f1f1;
+            }
+
+            .table td a {
+                color: #007bff;
+                text-decoration: none;
+            }
+
+                .table td a:hover {
+                    text-decoration: underline;
+                }
+
+        p {
+            margin: 0;
+            padding: 0;
+        }
+
+        .create-link {
+            display: inline-block;
+            padding: 10px 15px;
+            margin: 20px 0;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+            .create-link:hover {
+                background-color: #0056b3;
+            }
+    </style>
+
+</head>
+<body>
+   
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.DeviceId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ReadTimestamp)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Location)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ReaderId)
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DeviceId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReadTimestamp)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Location)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReaderId)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+                @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+            </td>
+        </tr>
+    }
+    
+    </table>
+</body>
+</html>

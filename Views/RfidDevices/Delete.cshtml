@@ -1,0 +1,150 @@
+﻿@model RFID_Device_Management.Models.RfidDevice
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Delete</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            max-width: 600px;
+            margin: auto;
+        }
+
+        h3 {
+            color: #d9534f; /* Bootstrap's red color for danger alerts */
+            margin-top: 0;
+        }
+
+        h4 {
+            margin-top: 0;
+            color: #333;
+        }
+
+        .dl-horizontal {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 0;
+            margin: 0;
+        }
+
+            .dl-horizontal dt {
+                font-weight: bold;
+                margin-right: 10px;
+                width: 200px; /* Adjust width if necessary */
+                text-align: right;
+                padding-right: 10px;
+            }
+
+            .dl-horizontal dd {
+                margin: 0;
+                padding: 0;
+                flex: 1;
+                word-break: break-word;
+            }
+
+            .dl-horizontal dd, .dl-horizontal dt {
+                display: flex;
+                align-items: center;
+            }
+
+        .btn-danger {
+            background-color: #d9534f;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin-top: 20px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+            .btn-danger:hover {
+                background-color: #c9302c;
+            }
+
+        .form-actions {
+            margin-top: 20px;
+        }
+    </style>
+
+</head>
+<body>
+    <h3>Are you sure you want to delete this?</h3>
+    <div>
+        <h4>RfidDevice</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.DeviceName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.DeviceName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.DeviceType)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.DeviceType)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.UniqueIdentifier)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.UniqueIdentifier)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Location)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Location)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Status)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Status)
+            </dd>
+
+        </dl>
+       
+
+        @using (Html.BeginForm("Delete", "RfidDevices", FormMethod.Post, new { id = Model.Id }))
+        {
+            @Html.AntiForgeryToken()
+            <input type="submit" value="Delete" class="btn btn-danger" />
+        }
+
+
+    </div>
+</body>
+</html>

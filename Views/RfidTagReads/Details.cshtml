@@ -1,0 +1,125 @@
+﻿@model RFID_Device_Management.Models.RfidTagRead
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            max-width: 600px;
+            margin: auto;
+        }
+
+        h4 {
+            margin-top: 0;
+            color: #333;
+        }
+
+        .dl-horizontal {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 0;
+            margin: 0;
+        }
+
+            .dl-horizontal dt {
+                font-weight: bold;
+                margin-right: 10px;
+                width: 150px;
+                text-align: right;
+                padding-right: 10px;
+            }
+
+            .dl-horizontal dd {
+                margin: 0;
+                padding: 0;
+                flex: 1;
+                word-break: break-word;
+            }
+
+            .dl-horizontal dd, .dl-horizontal dt {
+                display: flex;
+                align-items: center;
+            }
+
+        p {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .btn-link {
+            color: #007bff;
+            text-decoration: none;
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+
+            .btn-link:hover {
+                text-decoration: underline;
+                background-color: #f0f0f0;
+            }
+    </style>
+
+</head>
+<body>
+    <div>
+        <h4>RfidTagRead Details</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.DeviceId)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.DeviceId)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.ReadTimestamp)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.ReadTimestamp)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Location)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Location)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.ReaderId)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.ReaderId)
+            </dd>
+    
+        </dl>
+    </div>
+    
+        @*@Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+        @Html.ActionLink("Back to List", "Index")*@
+  
+</body>
+</html>

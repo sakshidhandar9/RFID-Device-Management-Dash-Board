@@ -1,0 +1,151 @@
+﻿
+@{
+    ViewBag.Title = "RFID Device Management Dashboard";
+}
+
+@{ Layout = "~/Views/Shared/_Layout.cshtml"; }
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+    <style>
+            body {
+                background-color: #f8f9fa;
+                padding-top: 20px;
+            }
+
+            .jumbotron {
+                background-color: #007bff;
+                color: white;
+                padding: 40px 20px;
+                border-radius: 10px;
+                margin-bottom: 20px;
+            }
+
+                .jumbotron h1 {
+                    font-size: 2.5rem;
+                    font-weight: 300;
+                }
+
+                .jumbotron p {
+                    font-size: 1.2rem;
+                }
+
+            .dashboard-card {
+                margin-bottom: 20px;
+            }
+
+                .dashboard-card .card-body {
+                    padding: 20px;
+                    text-align: center;
+                }
+
+                    .dashboard-card .card-body h5 {
+                        font-size: 1.5rem;
+                    }
+
+                    .dashboard-card .card-body p {
+                        font-size: 1rem;
+                    }
+
+                .dashboard-card .card-link {
+                    color: #007bff;
+                    text-decoration: none;
+                }
+
+                    .dashboard-card .card-link:hover {
+                        text-decoration: underline;
+                    }
+
+            .btn-primary {
+                background-color: #007bff;
+                border: none;
+            }
+
+                .btn-primary:hover {
+                    background-color: #0056b3;
+                }
+        </style>
+
+    
+</head>
+<body>
+    
+
+
+    <div class="container">
+        <div class="jumbotron">
+            <h1 class="display-4">RFID Device Management Dashboard</h1>
+            <p class="lead">Manage your RFID devices, monitor their status, and ensure efficient operation with ease.</p>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card dashboard-card">
+                    <div class="card-body">
+                        <h5 class="card-title">Register RFID Device</h5>
+                        <p class="card-text">Add new RFID devices to the system.</p>
+                        <a href="@Url.Action("Create", "RfidDevices")" class="btn btn-primary">Register New Device</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card dashboard-card">
+                    <div class="card-body">
+                        <h5 class="card-title">View Devices</h5>
+                        <p class="card-text">See a list of all registered RFID devices and their details.</p>
+                        <a href="@Url.Action("Index", "RfidDevices")" class="btn btn-primary">View All Devices</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card dashboard-card">
+                    <div class="card-body">
+                        <h5 class="card-title">Monitor Tag Reads</h5>
+                        <p class="card-text">Track the latest RFID tag reads and view their history.</p>
+                        <a href="@Url.Action("Index", "RfidTagReads")" class="btn btn-primary">Monitor Reads</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card dashboard-card">
+                    <div class="card-body">
+                        <h5 class="card-title">Update Device Info</h5>
+                        <p class="card-text">Update the information for existing RFID devices.</p>
+                        <a href="@Url.Action("Index", "RfidDevices")" class="btn btn-primary">Update Device</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card dashboard-card">
+                    <div class="card-body">
+                        <h5 class="card-title">Delete Devices</h5>
+                        <p class="card-text">Remove RFID devices from the system.</p>
+                        <a href="@Url.Action("Index", "RfidDevices")" class="btn btn-primary">Delete Device</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card dashboard-card">
+                    <div class="card-body">
+                        <h5 class="card-title">Device Status Monitoring</h5>
+                        <p class="card-text">Monitor the status of RFID readers in real-time.</p>
+                        <a href="@Url.Action("Index", "RfidDevices")" class="btn btn-primary">Monitor Status</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+   
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+   
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,171 @@
+﻿@model RFID_Device_Management.Models.RfidDevice
+
+@{
+    Layout = null;
+}
+
+@{ ViewBag.Title = "Edit Device"; }
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Edit</title>
+
+    <style>
+
+        body {
+            font-family: Arial, sans-serif; /* Font for the entire page */
+            background-color: #f4f4f4; /* Light background color */
+            color: #333; /* Dark text color */
+        }
+
+        .form-horizontal {
+            background-color: #fff; /* White background for the form */
+            border-radius: 8px; /* Rounded corners */
+            padding: 20px; /* Padding inside the form */
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Subtle shadow effect */
+            max-width: 600px; /* Max width of the form */
+            margin: 20px auto; /* Center the form horizontally */
+        }
+
+            .form-horizontal h4 {
+                color: #007bff; /* Blue color for the heading */
+                border-bottom: 2px solid #007bff; /* Blue border below the heading */
+                padding-bottom: 10px; /* Space below the heading */
+                margin-bottom: 20px; /* Space below the heading */
+                font-weight: bold; /* Bold heading */
+            }
+
+        .form-group {
+            margin-bottom: 15px; /* Space between form groups */
+        }
+
+        .control-label {
+            font-weight: bold; /* Bold label text */
+            color: #555; /* Darker text color for labels */
+        }
+
+        .form-control {
+            border-radius: 4px; /* Rounded corners for input fields */
+            border: 1px solid #ccc; /* Light border color */
+            padding: 10px; /* Padding inside input fields */
+        }
+
+            .form-control:focus {
+                border-color: #007bff; /* Blue border on focus */
+                box-shadow: 0 1px 3px rgba(0,0,0,0.1); /* Shadow effect on focus */
+            }
+
+        .btn-default {
+            background-color: #007bff; /* Blue button color */
+            color: #fff; /* White text color */
+            border: none; /* Remove default border */
+            border-radius: 4px; /* Rounded corners */
+            padding: 10px 20px; /* Padding around button */
+            cursor: pointer; /* Pointer cursor on hover */
+            font-size: 16px; /* Font size */
+        }
+
+            .btn-default:hover {
+                background-color: #0056b3; /* Darker blue on hover */
+            }
+
+        .text-danger {
+            color: #dc3545; /* Red color for validation messages */
+        }
+
+        a {
+            color: #007bff; /* Blue color for links */
+            text-decoration: none; /* Remove underline */
+        }
+
+            a:hover {
+                text-decoration: underline; /* Underline on hover */
+            }
+    </style>
+
+
+</head>
+<body>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <h4>RfidDevice</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.Id)
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.DeviceName, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.DeviceName, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.DeviceName, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.DeviceType, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.DeviceType, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.DeviceType, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.UniqueIdentifier, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.UniqueIdentifier, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.UniqueIdentifier, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Location, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Location, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Location, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Status, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Status, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Save" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+
+        <script>
+        $(document).ready(function () {
+            var successMessage = '@TempData["SuccessMessage"]';
+            if (successMessage) {
+                alert(successMessage); // Display an alert with the success message
+            }
+        });
+        </script>
+
+
+    }
+    
+        @*@Html.ActionLink("Back to List", "Index") |*@
+        @*@Html.ActionLink("Edit", "Edit", new { id = Model.Id })*@
+        @*@Html.ActionLink("Details", "Details", new { id = Model.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id = Model.Id })*@
+
+</body>
+</html>

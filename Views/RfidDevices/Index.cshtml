@@ -1,0 +1,172 @@
+﻿@model IEnumerable<RFID_Device_Management.Models.RfidDevice>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <style>
+        
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #007bff;
+            color: #fff;
+            font-weight: bold;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        .action-links a {
+            margin-right: 10px;
+            color: #007bff;
+            text-decoration: none;
+        }
+
+            .action-links a:hover {
+                text-decoration: underline;
+            }
+
+        .create-link {
+            display: block;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .search-bar {
+            margin-bottom: 20px;
+        }
+
+            .search-bar input {
+                padding: 8px;
+                width: 200px;
+                border: 1px solid #ddd;
+                border-radius: 4px;
+            }
+
+            .search-bar button {
+                padding: 8px;
+                background-color: #007bff;
+                color: white;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+            }
+
+                .search-bar button:hover {
+                    background-color: #0056b3;
+                }
+    </style>
+
+    
+</head>
+<body>
+
+    <div class="container">
+        <h1>View Register RFID Devices</h1>
+
+        <div class="search-bar">
+            @using (Html.BeginForm("Index", "RfidDevices", FormMethod.Get))
+            {
+            <input type="text" name="searchString" value="@Request.QueryString["searchString"]"
+                   placeholder="Search devices..." />
+                <button type="submit">Search</button>            }
+        </div>
+
+
+        
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.DeviceName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DeviceType)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.UniqueIdentifier)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Location)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Status)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DeviceName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DeviceType)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.UniqueIdentifier)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Location)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Status)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Update", "Edit", new { id = item.Id }) |
+                        @*@Html.ActionLink("Details", "Details", new { id = item.Id }) |*@
+                        @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                    </td>
+                </tr>
+
+                
+            }
+
+        </table>
+        </div>
+</body>
+</html>
