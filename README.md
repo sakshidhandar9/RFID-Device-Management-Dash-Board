@@ -1,8 +1,10 @@
 # RFID-Device-Management-Dash-Board
 Project Overview
+
 The RFID Device Management Dashboard is a web application designed to facilitate the management and monitoring of RFID (Radio Frequency Identification) devices. It provides functionalities for registering new devices, viewing device details, monitoring RFID tag reads, updating device information, deleting devices, and tracking device statuses in real-time. This application is built using ASP.NET MVC, Entity Framework, and Bootstrap for a responsive user interface.
 
 Features
+
 Register RFID Devices: Add new RFID devices with details like device name, type, unique identifier, and location.
 View Registered Devices: Display a list of all registered RFID devices with options for sorting, filtering, and searching.
 Monitor RFID Tag Reads: Track and display the latest RFID tag reads, including timestamp, location, and reader ID, with access to historical data.
@@ -10,6 +12,8 @@ Update Device Information: Update existing RFID device details with validation t
 Delete Devices: Remove RFID devices from the system.
 Device Status Monitoring: Show real-time status of RFID readers (online/offline).
 Basic Authentication: Secure access to the dashboard with user authentication.
+
+
 Technical Requirements
 Frontend: Razor views, HTML5, CSS3, JavaScript/jQuery, Bootstrap.
 Backend: ASP.NET MVC with C#.
@@ -21,7 +25,7 @@ Clone the Repository:
 
 bash
 Copy code
-git clone https://github.com/yourusername/rfid-device-management-dashboard.git
+git clone https://github.com/sakshidhandar9/rfid-device-management-dashboard.git
 cd rfid-device-management-dashboard
 Install Dependencies: Ensure you have the following installed:
 
@@ -32,6 +36,7 @@ Restore the project dependencies:
 bash
 Copy code
 dotnet restore
+
 Configure Database:
 
 Create a new database in SQL Server.
@@ -49,9 +54,12 @@ dotnet run
 Navigate to https://localhost:5001 in your web browser to access the application.
 
 Usage
+
 Login: Use the login page to authenticate and access the dashboard.
 Dashboard: Use the dashboard to manage RFID devices, view device details, and monitor real-time status.
+
 Challenges Faced
+
 Integrating SignalR: Faced challenges with implementing real-time updates for RFID tag reads and device statuses. Resolved by configuring SignalR hubs and ensuring proper connection handling.
 Handling Real-Time Data: Managed real-time updates by using a combination of SignalR and periodic polling to simulate RFID tag reads and device status changes.
 Additional Features
